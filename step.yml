@@ -1,0 +1,42 @@
+title: "Monkop.com testing for Android"
+summary: Test your Android app on Monkop with Monkop CLI.
+description: |-
+  Use this step to test your deployed APK on Monkop.
+website:
+source_code_url: 
+support_url: 
+host_os_tags:
+  - ubuntu
+  - osx-10.10
+project_type_tags:
+  - android
+type_tags:
+  - script
+  - Monkop
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+deps:
+  apt_get:
+  - name: git
+  - name: curl
+inputs:
+  - apk_path: "$BITRISE_APK_PATH"
+    opts:
+      title: "APK file path"
+      summary: ""
+      description: ""
+      is_required: true
+  - api_key: "$MONKOP_API_KEY"
+    opts:
+      title: "Account API key"
+      summary: ""
+      description: |-
+        This is the API key value associated to your account.
+
+        ## Where can you get it?
+
+        [Sign in](https://console.monkop.com/login.xhtml) to your Monkop account,
+        click on [Add-ons](https://console.monkop.com/addOns.xhtml) and select the 
+        "API Key" add-on. Your API key will appear once you enable the add-on.
+      is_required: true
