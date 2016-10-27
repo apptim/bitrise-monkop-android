@@ -1,7 +1,12 @@
-title: "Monkop.com testing for Android"
-summary: Test your Android app on Monkop with Monkop CLI.
+title: Monkop.com Android Testing Cloud.
+summary: Test your Android app using Monkop. Real performance analysis using real devices.
 description: |-
   Use this step to test your deployed APK on Monkop.
+  
+  Monkop enable to run smoke tests on several real devices with no officer. Get detailed information about the native app’s performance.
+
+  If you don't have a Monkop account, register for free [here](https://console.monkop.com/register.xhtml) and get your API KEY!
+  The API_KEY value can be found on "Add-ons" section under "API Key" option.
 website: https://github.com/MonkopApps/bitrise-monkop-android
 source_code_url: https://github.com/MonkopApps/bitrise-monkop-android 
 support_url: https://github.com/MonkopApps/bitrise-monkop-android/issues
