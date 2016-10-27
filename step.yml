@@ -2,9 +2,9 @@ title: "Monkop.com testing for Android"
 summary: Test your Android app on Monkop with Monkop CLI.
 description: |-
   Use this step to test your deployed APK on Monkop.
-website:
-source_code_url: 
-support_url: 
+website: https://github.com/MonkopApps/bitrise-monkop-android
+source_code_url: https://github.com/MonkopApps/bitrise-monkop-android 
+support_url: https://github.com/MonkopApps/bitrise-monkop-android/issues
 host_os_tags:
   - ubuntu
   - osx-10.10
