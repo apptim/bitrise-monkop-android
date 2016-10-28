@@ -16,7 +16,7 @@ app:
   - API_KEY: $MONKOP_API_KEY
 
 workflows:
-  monkop:
+  test:
     steps:
     - script:
         title: monkop cli run
