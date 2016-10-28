@@ -23,11 +23,6 @@ workflows:
         inputs:
         - content: |-
             #!/bin/bash
-            echo "Monkop!"
-            echo "Selected APK is: ${APK_PATH}"
-            echo
-            echo "Your API_KEY is: ${API_KEY}"
-            echo
             curl http://static.monkop.com/setup/cli/monkop-cli.py -o monkop-cli.py
             python monkop-cli.py -k ${API_KEY} -a ${APK_PATH}
 
