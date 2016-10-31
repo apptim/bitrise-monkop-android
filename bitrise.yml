@@ -18,19 +18,22 @@ app:
 workflows:
   test:
     steps:
+    - change-workdir:
+        run_if: true
+        inputs:
+        - path: ./_tmp
+        - is_create_path: true
+    - path::./:
+        inputs:
+        - apk_path: "${APK_PATH}"
+        - api_key: "${API_KEY}"
     - script:
-        title: monkop cli run
+        title: Monkop CLI run status result
         inputs:
         - content: |-
             #!/bin/bash
-            echo "Monkop!"
-            echo "Selected APK is: ${APK_PATH}"
-            echo
-            echo "Your API_KEY is: ${API_KEY}"
-            echo
-            curl http://static.monkop.com/setup/cli/monkop-cli.py -o monkop-cli.py
-            python monkop-cli.py -k ${API_KEY} -a ${APK_PATH}
-
+            echo "MONKOP_TEST_STATUS: ${MONKOP_TEST_STATUS}"
+ 
   # ----------------------------------------------------------------
   # --- workflows to Share this step into a Step Library
   audit-this-step:
@@ -45,10 +48,10 @@ workflows:
   share-this-step:
     envs:
       # if you want to share this step into a StepLib
-      - MY_STEPLIB_REPO_FORK_GIT_URL:
-      - STEP_ID_IN_STEPLIB:
-      - STEP_GIT_VERION_TAG_TO_SHARE:
-      - STEP_GIT_CLONE_URL:
+      - MY_STEPLIB_REPO_FORK_GIT_URL: $MY_STEPLIB_REPO_FORK_GIT_URL
+      - STEP_ID_IN_STEPLIB: $STEP_ID_IN_STEPLIB
+      - STEP_GIT_VERION_TAG_SHARE: $STEP_GIT_VERION_TAG_SHARE
+      - STEP_GIT_CLONE_URL: $STEP_GIT_CLONE_URL
     description: |-
       If this is the first time you try to share a Step you should
       first call: $ bitrise share
@@ -63,7 +66,7 @@ workflows:
       as the value of the `MY_STEPLIB_REPO_FORK_GIT_URL` environment.
 
       You're now ready to share this Step, just make sure that
-      the `STEP_ID_IN_STEPLIB` and `STEP_GIT_VERION_TAG_TO_SHARE`
+      the `STEP_ID_IN_STEPLIB` and `STEP_GIT_VERION_TAG_SHARE`
       environments are set to the desired values!
 
       To share this Step into a StepLib you can just run: $ bitrise run share-this-step
@@ -79,5 +82,5 @@ workflows:
             #!/bin/bash
             set -ex
             bitrise share start -c ${MY_STEPLIB_REPO_FORK_GIT_URL}
-            bitrise share create --stepid ${STEP_ID_IN_STEPLIB} --tag ${STEP_GIT_VERION_TAG_TO_SHARE} --git ${STEP_GIT_CLONE_URL}
+            bitrise share create --stepid ${STEP_ID_IN_STEPLIB} --tag ${STEP_GIT_VERION_TAG_SHARE} --git ${STEP_GIT_CLONE_URL}
             bitrise share finish
