@@ -30,7 +30,7 @@ curl http://static.monkop.com/setup/cli/monkop-cli.py -o monkop-cli.py
 # Upload apk to Monkop, you will receive an e-mail with the results
 python monkop-cli.py -k ${api_key} -a ${apk_path}
 
-envman add --key "MONKOP_TEST_STATUS" --value "?"
+envman add --key "MONKOP_TEST_STATUS" --value "OK"
 
 echo "==> End."
 

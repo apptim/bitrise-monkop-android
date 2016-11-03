@@ -16,7 +16,6 @@ host_os_tags:
 project_type_tags:
   - android
 type_tags:
-  - script
   - Monkop
 is_requires_admin_user: true
 is_always_run: false
